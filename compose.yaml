@@ -1,0 +1,14 @@
+version: '3'
+services:
+  tes1:
+    build: tes1
+    ports:
+      - "3001:3001"
+  tes2:
+    build: tes2
+    ports:
+      - "3002:3002"
+  tes3:
+    build: tes3
+    ports:
+      - "3003:3003"
