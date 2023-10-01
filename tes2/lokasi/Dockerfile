@@ -1,5 +1,5 @@
 # Gunakan image node.js sebagai base image, node biasa atau alpine yang lebih ringan bawaan linux
-FROM node:16-alpine
+FROM node:18-alpine
 
 # Set nama direktori untuk digunakan pada container docker nya, namanya bebas dan itu juga akan muncul pada terminal docker container
 WORKDIR /app

@@ -1,0 +1,36 @@
+version: "3.8"
+services:
+  tes1:
+    build:
+      context: ./tes1
+      dockerfile: Dockerfile.dev
+      args:
+        buildno: 1
+    image: tes1:v1
+    deploy:
+      replicas: 1
+    depends_on:
+      - tes2
+  tes2:
+    build: ./tes2/lokasi
+    image: tes2:v1
+  # tes3:
+  #   build: ./tes3
+  #   env_file:
+  #   - tes3/.env
+  #   image: "webapp:${TAG}"
+  # container_name: owncloud_redis
+  # build:
+  # context: .
+  # additional_contexts:
+  #   resources: /path/to/resources
+  #   app: docker-image://my-app:latest
+  #   source: https://github.com/ihwenwen20/project.git
+  nginx:
+    build: ./nginx
+    ports:
+    - '5000:5000'
+    depends_on:
+    - tes1
+    - tes2
+    restart: always
